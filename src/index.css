@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply antialiased;
+}
+
+.apexcharts-tooltip {
+  @apply shadow-lg border-0 !important;
+}
