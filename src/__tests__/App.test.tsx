@@ -1,9 +1,9 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect, beforeEach,vi } from 'vitest';
 import App from '../App';
 
 // Mock the ApexCharts component since it's not compatible with jsdom
-vi.mock('react-apexcharts', () => ({
+vi.mock('react-apexcharts', () => ({ //fake/duplicate component
   default: () => <div data-testid="mock-chart">Chart</div>,
 }));
 
@@ -12,7 +12,7 @@ describe('Hotel Dashboard', () => {
     render(<App />);
   });
 
-  it('renders the dashboard title', () => {
+  it('renders the dashboard title', () => { //
     expect(screen.getByText('Hotel Bookings Dashboard')).toBeInTheDocument();
     expect(screen.getByText('Monitor booking trends and visitor statistics')).toBeInTheDocument();
   });
